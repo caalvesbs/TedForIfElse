@@ -1,0 +1,58 @@
+package Ted03JavaApplic;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Ted03 {
+
+    public static void main(String[] args){
+
+        float altura;
+        float somaH = 0;
+        float mediaH = 0;
+        float maiorAltura = 0;
+        float menorAltura = 0;
+        char sexo;
+        int qtdeFem = 0;
+        int qtdeMas = 0;
+
+        Scanner sc = new Scanner(System.in);
+        Locale.setDefault(Locale.US);
+
+        for (int i=0; i<10; i++) {
+
+            System.out.print("Digite o sexo (F/M): ");
+            sexo = sc.next().charAt(0);
+            System.out.print("Digite a altura: ");
+            altura = sc.nextFloat();
+
+            if (sexo == 'F') {
+                System.out.print("Sexo Feminino, tamanho de " + altura + "m\n");
+                qtdeFem++;
+            }
+                else if (sexo == 'M') {
+                System.out.print("Sexo Masculino, tamanho de " + altura + "m\n");
+                qtdeMas++;
+                somaH = somaH + altura;
+
+            } else {
+                System.out.println("Escolha M ou F com letra maiúscula!");
+            }
+            if (altura > maiorAltura) {
+                maiorAltura = altura;
+            }
+            else if (altura < menorAltura){
+                menorAltura = altura;
+            }
+        }
+
+        mediaH = somaH / qtdeMas;
+
+        System.out.println();
+        System.out.println("Maior altura: " + maiorAltura + "m, Menor altura: " + menorAltura + "m");
+        System.out.println("A média de altura dos homens " + mediaH + "m");
+        System.out.println("Quantidade de mulheres: " + qtdeFem + ".");
+
+        sc.close();
+    }
+}
